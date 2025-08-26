@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESS Classification - Documentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .nav a {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px #c8d5e0, -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+        .nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 12px 12px 20px #c8d5e0, -12px -12px 20px #ffffff;
+        }
+        h1 {
+            text-align: center;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            font-weight: 300;
+            font-size: 2.5em;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            box-shadow: inset 8px 8px 16px #c8d5e0, inset -8px -8px 16px #ffffff;
+        }
+        h2 {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        h3 {
+            color: #5a5a5a;
+            margin: 20px 0 10px 0;
+            font-weight: 400;
+        }
+        p, li {
+            color: #6a6a6a;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .code {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 15px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            box-shadow: inset 4px 4px 8px #d0d0d0, inset -4px -4px 8px #ffffff;
+        }
+        .endpoint {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            box-shadow: 8px 8px 16px #c8d5e0, -8px -8px 16px #ffffff;
+        }
+        .method {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .model-info {
+            background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 8px 8px 16px #c8d5e0, -8px -8px 16px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/">🏠 Home</a>
+            <a href="/docs">📚 Documentation</a>
+            <a href="/results">📊 Results</a>
+            <a href="/test">🧪 Test API</a>
+        </div>
+
+        <h1>ESS Classification System</h1>
+
+        <div class="section">
+            <h2>📋 Overview</h2>
+            <p>The ESS (Endometrial Stromal Sarcoma) Classification System is an AI-powered web application that classifies histopathology images into Low Grade (LG) and High Grade (HG) categories using deep learning.</p>
+            
+            <div class="model-info">
+                <h3>🧠 Model Architecture</h3>
+                <ul>
+                    <li><strong>Base Model:</strong> EfficientNet-B0</li>
+                    <li><strong>Training:</strong> 5-Fold Cross-Validation</li>
+                    <li><strong>Classes:</strong> LG (Low Grade), HG (High Grade)</li>
+                    <li><strong>Input Size:</strong> 224x224 pixels</li>
+                    <li><strong>Preprocessing:</strong> ImageNet normalization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Quick Start</h2>
+            <h3>Installation</h3>
+            <div class="code">pip install -r requirements.txt</div>
+            
+            <h3>Run Server</h3>
+            <div class="code">python app.py</div>
+            
+            <h3>Access Application</h3>
+            <div class="code">http://localhost:5001</div>
+        </div>
+
+        <div class="section">
+            <h2>🔌 API Endpoints</h2>
+            
+            <div class="endpoint">
+                <h3><span class="method">GET</span> /</h3>
+                <p><strong>Description:</strong> Main application interface</p>
+                <p><strong>Returns:</strong> HTML interface for image upload and classification</p>
+            </div>
+
+            <div class="endpoint">
+                <h3><span class="method">GET</span> /docs</h3>
+                <p><strong>Description:</strong> API documentation</p>
+                <p><strong>Returns:</strong> This documentation page</p>
+            </div>
+
+            <div class="endpoint">
+                <h3><span class="method">GET</span> /test</h3>
+                <p><strong>Description:</strong> Health check endpoint</p>
+                <p><strong>Returns:</strong> JSON status response</p>
+                <div class="code">{"status": "ok"}</div>
+            </div>
+
+            <div class="endpoint">
+                <h3><span class="method">POST</span> /predict</h3>
+                <p><strong>Description:</strong> Classify histopathology image</p>
+                <p><strong>Input:</strong> Form data with 'image' file</p>
+                <p><strong>Returns:</strong> Classification results</p>
+                <div class="code">{
+  "prediction": "HG",
+  "confidence": 87.45,
+  "probabilities": {
+    "LG": 12.55,
+    "HG": 87.45
+  }
+}</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Model Performance</h2>
+            <p>The model was trained using 5-fold cross-validation on preprocessed histopathology patches with the following characteristics:</p>
+            <ul>
+                <li>Data augmentation: rotation, flipping, color jittering</li>
+                <li>Class balancing through oversampling</li>
+                <li>Early stopping with patience mechanism</li>
+                <li>Weighted loss function for class imbalance</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Technical Details</h2>
+            <h3>Dependencies</h3>
+            <ul>
+                <li>Flask 2.3.3 - Web framework</li>
+                <li>PyTorch 2.0.1 - Deep learning</li>
+                <li>Torchvision 0.15.2 - Computer vision</li>
+                <li>Pillow 10.0.0 - Image processing</li>
+                <li>Flask-CORS 4.0.0 - Cross-origin requests</li>
+            </ul>
+
+            <h3>Image Processing Pipeline</h3>
+            <ol>
+                <li>Convert to RGB format</li>
+                <li>Resize to 224x224 pixels</li>
+                <li>Normalize using ImageNet statistics</li>
+                <li>Convert to tensor format</li>
+                <li>Apply model inference</li>
+                <li>Return softmax probabilities</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Usage Notes</h2>
+            <ul>
+                <li>Supported formats: JPG, PNG, TIF</li>
+                <li>Recommended image size: 224x224 or larger</li>
+                <li>Model requires CUDA-compatible GPU for optimal performance</li>
+                <li>Fallback to CPU if GPU unavailable</li>
+                <li>Maximum file size: Limited by Flask configuration</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

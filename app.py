@@ -4,7 +4,6 @@ from PIL import Image
 import io
 import base64
 from pathlib import Path
-import numpy as np
 
 try:
     import torch

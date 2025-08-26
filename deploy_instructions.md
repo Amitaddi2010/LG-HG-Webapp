@@ -15,11 +15,12 @@ git config --global user.name "Your Name"
 git init
 git add .
 git commit -m "Initial commit"
+git branch -M main
 ```
 
 2. **Push to GitHub:**
 ```bash
-git remote add origin YOUR_GITHUB_REPO_URL
+git remote add origin https://github.com/Amitaddi2010/LG-HG-Webapp.git
 git push -u origin main
 ```
 

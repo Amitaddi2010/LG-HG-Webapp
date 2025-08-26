@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from PIL import Image
 import io
 import base64
 from pathlib import Path
@@ -48,13 +47,17 @@ else:
 def preprocess_image(image_bytes):
     if not TORCH_AVAILABLE:
         return None
-    image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
-    transform = T.Compose([
-        T.Resize((IMG_SIZE, IMG_SIZE)),
-        T.ToTensor(),
-        T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-    return transform(image).unsqueeze(0).to(DEVICE)
+    try:
+        from PIL import Image
+        image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+        transform = T.Compose([
+            T.Resize((IMG_SIZE, IMG_SIZE)),
+            T.ToTensor(),
+            T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        ])
+        return transform(image).unsqueeze(0).to(DEVICE)
+    except ImportError:
+        return None
 
 @app.route('/')
 def index():
